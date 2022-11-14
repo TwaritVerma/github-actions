@@ -1,0 +1,30 @@
+name: Test_Workflow
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  Test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Check out repository code
+        uses: actions/checkout@v3
+      - 
+        name: Setup Python environment
+        uses: actions/setup-python@v4
+      - 
+        name: Create Release Info
+        run: echo "RELEASE_VERSION=$(cat .plugin-version)" >> $GITHUB_ENV
+      -
+        name: Installing Dependencies
+        run: pip install hatch
+      - 
+        name: Versioning the build
+        run: hatch version ${{ env.RELEASE_VERSION }}
+      - 
+        name: Creating python Package
+        run: hatch build
+      - 
+        name: Publishing python Package
+        run: hatch publish
