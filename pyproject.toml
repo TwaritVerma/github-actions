@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "github-actions"
+dynamic = ["version"]
+description = "Test Github Actions"
+readme = "README.md"
+authors = [
+    { name = "test", email = "antonyrohith.akash@neustarsecurityservices.com" },
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/AntonyRohithAkash/github-actions"
+
+[tool.hatch.version]
+path = "github_actions/about.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/github_actions",
+]
