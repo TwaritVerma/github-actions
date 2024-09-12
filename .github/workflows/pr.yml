@@ -11,5 +11,4 @@ jobs:
       -
         name: "Test"
         run: |
-          echo  ${{ toJSON(github.event.pull_request) }}
-          echo  ${{ toJSON(github.event.pull_request.labels) }}
+          echo  ${{ toJSON(github.event.pull_request.head) }}
