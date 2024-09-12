@@ -11,5 +11,4 @@ jobs:
       -
         name: "Test"
         run: |
-          echo  ${{ github.event.pull_request.head }}
-          
+          echo  ${{ github.event.pull_request.head.repo.fork }}
