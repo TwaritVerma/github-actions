@@ -12,4 +12,4 @@ jobs:
         name: "Test"
         run: |
           echo  ${{ github.event.pull_request }}
-          echo  ${{ github.event.pull_request.labels }}
+          echo  ${{ fromJSON(github.event.pull_request.labels) }}
