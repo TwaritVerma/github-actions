@@ -4,6 +4,18 @@ on:
     branches:
       - main
 jobs:
+  Fork_PR_Modification:
+    if: github.event.pull_request.head.repo.fork
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Check out repository code
+        uses: actions/checkout@v4
+      -
+        name: Create temp branch for fork merge
+        run: |
+          git checkout -b "fork-branch-pr-${{ github.event.pull_request.number }}"
+
   Verification:
     if: ${{ ! github.event.pull_request.head.repo.fork }}
     runs-on: ubuntu-latest
