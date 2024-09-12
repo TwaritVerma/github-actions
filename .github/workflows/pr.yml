@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   Verification:
+    if: github.event.pull_request.head.repo.fork
     runs-on: ubuntu-latest
     environment: test
     steps:
@@ -12,3 +13,4 @@ jobs:
         name: "Test"
         run: |
           echo  ${{ github.event.pull_request.head.repo.fork }}
+          echo "VERIFICATIOn DONE"
