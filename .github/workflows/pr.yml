@@ -15,6 +15,7 @@ jobs:
         name: Create temp branch for fork merge
         run: |
           git checkout -b "fork-branch-pr-${{ github.event.pull_request.number }}"
+          git push
 
   Verification:
     if: ${{ ! github.event.pull_request.head.repo.fork }}
