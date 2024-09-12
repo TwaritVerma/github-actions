@@ -2,7 +2,7 @@ name: PR Verification
 on: 
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   Verification:
     runs-on: ubuntu-latest
@@ -10,4 +10,5 @@ jobs:
     steps:
       -
         name: "Test"
-        run: echo "RELEASE_VERSION
+        run: |
+          echo  ${{ github.event.pull_request.head.repo.fork }}
