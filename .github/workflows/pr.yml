@@ -14,6 +14,8 @@ jobs:
       -
         name: Create temp branch for fork merge
         run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
           git checkout -b "fork-branch-pr-${{ github.event.pull_request.number }}"
           git push --set-upstream origin fork-branch-pr-${{ github.event.pull_request.number }}
 
